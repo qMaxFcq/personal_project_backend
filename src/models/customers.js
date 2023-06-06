@@ -67,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Customer.belongsTo(models.Phonerec, {
       foreignKey: {
-        name: "phoneRecid",
+        name: "phonerecId",
         allowNull: false,
       },
       onDelete: "RESTRICT",

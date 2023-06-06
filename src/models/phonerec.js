@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   Phonerec.associate = (models) => {
     Phonerec.hasMany(models.Customer, {
       foreignKey: {
-        name: "phoneRecid",
+        name: "phonerecId",
         allowNull: false,
       },
       onDelete: "RESTRICT",
