@@ -4,6 +4,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 // const helmet = require("helmet");
 // const rateLimit = require("express-rate-limit");
+const authRoute = require("./routes/auth-route");
 
 const app = express();
 
@@ -23,7 +24,7 @@ if (process.env.NODE_ENV === "development") {
 
 // app.use(helmet());
 app.use(express.json());
-app.use("/auth", () => {});
+app.use("/", authRoute);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => console.log("server running on port " + port));
