@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
   const Customer = sequelize.define(
     "Customer",
     {
-      customerID: {
+      customerId: {
         type: DataTypes.STRING,
         unique: true,
         validate: {
@@ -37,43 +37,51 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
+      orderDetail: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
     },
     {
       underscored: true,
+      timestamps: false,
     }
   );
   Customer.associate = (models) => {
-    Customer.belongsTo(models.User, {
+    Customer.belongsTo(models.Admin, {
       foreignKey: {
-        name: "userName",
+        name: "adminId",
         allowNull: false,
       },
       onDelete: "RESTRICT",
     });
     Customer.belongsTo(models.Shopname, {
       foreignKey: {
-        name: "shopID",
+        name: "shopId",
         allowNull: false,
       },
       onDelete: "RESTRICT",
     });
     Customer.belongsTo(models.Phonerec, {
       foreignKey: {
-        name: "phoneRecID",
+        name: "phoneRecid",
         allowNull: false,
       },
       onDelete: "RESTRICT",
     });
     Customer.belongsTo(models.Typeorder, {
       foreignKey: {
-        name: "typeID",
+        name: "typeId",
         allowNull: false,
       },
       onDelete: "RESTRICT",
     });
     Customer.belongsTo(models.Statuscustomer, {
       foreignKey: {
-        name: "statusID",
+        name: "statusId",
         allowNull: false,
       },
       onDelete: "RESTRICT",

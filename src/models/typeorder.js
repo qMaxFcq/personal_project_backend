@@ -12,13 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       underscored: true,
+      timestamps: false,
     }
   );
 
   Typeorder.associate = (models) => {
     Typeorder.hasMany(models.Customer, {
       foreignKey: {
-        name: "typeID",
+        name: "typeId",
         allowNull: false,
       },
       onDelete: "RESTRICT",

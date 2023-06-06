@@ -12,13 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       underscored: true,
+      timestamps: false,
     }
   );
 
   Phonerec.associate = (models) => {
     Phonerec.hasMany(models.Customer, {
       foreignKey: {
-        name: "phoneRecID",
+        name: "phoneRecid",
         allowNull: false,
       },
       onDelete: "RESTRICT",

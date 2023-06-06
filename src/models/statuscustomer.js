@@ -12,13 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       underscored: true,
+      timestamps: false,
     }
   );
 
   Statuscustomer.associate = (models) => {
     Statuscustomer.hasMany(models.Customer, {
       foreignKey: {
-        name: "statusID",
+        name: "statusId",
         allowNull: false,
       },
       onDelete: "RESTRICT",

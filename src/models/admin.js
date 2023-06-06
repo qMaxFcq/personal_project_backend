@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
-    "User",
+  const Admin = sequelize.define(
+    "Admin",
     {
-      userName: {
+      adminName: {
         type: DataTypes.STRING,
         unique: true,
         validate: {
@@ -23,18 +23,11 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      email: {
+      adminEmail: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           isEmail: true,
-        },
-      },
-      phoneNumber: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          is: /^[0-9]{10}$/,
         },
       },
       password: {
@@ -44,24 +37,21 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      isAdmin: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
     },
     {
       underscored: true,
+      timestamps: false,
     }
   );
-  User.associate = (models) => {
-    User.hasMany(models.Customer, {
+  Admin.associate = (models) => {
+    Admin.hasMany(models.Customer, {
       foreignKey: {
-        name: "userName",
+        name: "adminId",
         allowNull: false,
       },
       onDelete: "RESTRICT",
     });
   };
 
-  return User;
+  return Admin;
 };

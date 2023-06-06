@@ -23,6 +23,7 @@ if (process.env.NODE_ENV === "development") {
 
 // app.use(helmet());
 app.use(express.json());
+app.use("/auth", () => {});
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => console.log("server running on port " + port));
