@@ -1,5 +1,6 @@
 const { customerSchema } = require("../validators/auth-validators");
 const customerService = require("../services/customer-service");
+const createError = require("../utils/create-error");
 
 exports.addCustomer = async (req, res, next) => {
   try {
@@ -15,6 +16,16 @@ exports.addCustomer = async (req, res, next) => {
       ...value,
       ...admin,
     });
+    res.status(201).json({ message: "done" });
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.delCustomer = async (req, res, next) => {
+  try {
+    // const
+    // res.json("done");
   } catch (err) {
     next(err);
   }

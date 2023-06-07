@@ -30,7 +30,7 @@ app.use(helmet());
 
 app.use(express.json());
 app.use("/", authRoute);
-app.use("/add", authenticate, customerRoute);
+app.use("/customer", authenticate, customerRoute);
 
 app.use(notFoundMiddelware);
 app.use(errorMiddleware);
