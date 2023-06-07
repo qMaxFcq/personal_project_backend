@@ -22,5 +22,23 @@ const loginSchema = Joi.object({
   password: Joi.string().required(),
 });
 
+const customerSchema = Joi.object({
+  customerId: Joi.string().trim().required(),
+  firstName: Joi.string().trim().required(),
+  lastName: Joi.string().trim().required(),
+  phoneNumber: Joi.string()
+    .pattern(/^[0-9]{10}$/)
+    .trim()
+    .required(),
+  orderDetail: Joi.string().trim().required(),
+  dateOrder: Joi.string().trim().required(),
+  adminId: Joi.string().required(),
+  shopId: Joi.string().required(),
+  phonerecId: Joi.string().required(),
+  typeId: Joi.string().required(),
+  statusId: Joi.string().required(),
+});
+
 exports.registerValidate = validate(registerSchema);
 exports.logingValidate = validate(loginSchema);
+exports.customerSchema = validate(customerSchema);
