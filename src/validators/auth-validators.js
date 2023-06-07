@@ -39,5 +39,5 @@ const customerSchema = Joi.object({
 });
 
 exports.registerValidate = validate(registerSchema);
-exports.logingValidate = validate(loginSchema);
+exports.loginValidate = validate(loginSchema);
 exports.customerSchema = validate(customerSchema);

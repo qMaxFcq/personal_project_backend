@@ -1,8 +1,9 @@
 const {
-  logingValidate,
+  loginValidate,
   registerValidate,
 } = require("../validators/auth-validators");
 const adminService = require("../services/admin-service");
+const createError = require("../utils/create-error");
 const bcryptService = require("../services/bcrypt-service");
 const genAccessToken = require("../services/token-service");
 
@@ -13,9 +14,7 @@ exports.register = async (req, res, next) => {
       value.adminName || value.adminEmail
     );
     if (checkinputregister) {
-      res
-        .status(400)
-        .json({ message: "Admin Name or Email Already to use na" });
+      createError("Name or Email Already to Use", 400);
     }
     //ส่ง value.password ไป hash ที่ bcryptService
     value.password = await bcryptService.hashPassword(value.password);
@@ -29,10 +28,10 @@ exports.register = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
   try {
-    const value = logingValidate(req.body);
+    const value = loginValidate(req.body);
     const checkadmin = await adminService.getAdminByName(value.adminName);
     if (!checkadmin) {
-      res.status(400).json({ message: "not have" });
+      createError("Admin Name not match or Password wrong!!", 400);
     }
 
     const checkpassword = await bcryptService.comparePassword(
@@ -41,7 +40,7 @@ exports.login = async (req, res, next) => {
     );
 
     if (!checkpassword) {
-      res.status(400).json({ message: "not have" });
+      createError("Admin Name not match or Password wrong!!", 400);
     }
 
     const accessToken = genAccessToken.createToken({ id: value.adminName });
