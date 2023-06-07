@@ -2,15 +2,6 @@ module.exports = (sequelize, DataTypes) => {
   const Admin = sequelize.define(
     "Admin",
     {
-      adminId: {
-        primaryKey: true,
-        type: DataTypes.STRING,
-        unique: true,
-        validate: {
-          notEmpty: true,
-        },
-      },
-
       adminName: {
         type: DataTypes.STRING,
         unique: true,

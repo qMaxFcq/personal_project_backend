@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
     "Customer",
     {
       customerId: {
-        primaryKey: true,
         type: DataTypes.STRING,
         unique: true,
         validate: {

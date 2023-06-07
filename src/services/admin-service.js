@@ -9,3 +9,5 @@ exports.checkPassword = (password) =>
       password: password,
     },
   });
+
+exports.createUser = (userValue) => Admin.create(userValue);
