@@ -10,8 +10,11 @@ exports.addCustomer = async (req, res, next) => {
     if (checkCustomer) {
       res.json("have user now!!");
     }
-    const customer = customerService.createCustomer(value);
-    res.json("done");
+    const admin = { adminId: req.user.id };
+    const customer = await customerService.createCustomer({
+      ...value,
+      ...admin,
+    });
   } catch (err) {
     next(err);
   }

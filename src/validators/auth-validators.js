@@ -32,7 +32,6 @@ const customerSchema = Joi.object({
     .required(),
   orderDetail: Joi.string().trim().required(),
   dateOrder: Joi.string().trim().required(),
-  adminId: Joi.string().required(),
   shopId: Joi.string().required(),
   phonerecId: Joi.string().required(),
   typeId: Joi.string().required(),
