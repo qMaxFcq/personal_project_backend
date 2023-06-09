@@ -31,6 +31,7 @@ app.use(helmet());
 app.use(express.json());
 app.use("/", authRoute);
 app.use("/customer", authenticate, customerRoute);
+app.use("/admin", authenticate, customerRoute);
 
 app.use(notFoundMiddelware);
 app.use(errorMiddleware);

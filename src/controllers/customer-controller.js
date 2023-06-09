@@ -72,3 +72,15 @@ exports.delCustomer = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.getAllCustomer = async (req, res, next) => {
+  try {
+    const allCustomer = await customerService.getAllCustomer();
+    if (!allCustomer) {
+      createError("not have customer");
+    }
+    res.json(allCustomer);
+  } catch (err) {
+    next(err);
+  }
+};
