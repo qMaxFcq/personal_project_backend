@@ -3,8 +3,8 @@ const validate = require("./validate");
 
 const registerSchema = Joi.object({
   adminName: Joi.string().trim().required(),
-  firstName: Joi.string().trim().required(),
-  lastName: Joi.string().trim().required(),
+  adminfirstName: Joi.string().trim().required(),
+  adminlastName: Joi.string().trim().required(),
   adminEmail: Joi.string().email({ tlds: false }),
   password: Joi.string()
     .pattern(/^[a-zA-Z0-9]{6,30}$/)

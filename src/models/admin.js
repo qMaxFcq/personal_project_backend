@@ -9,14 +9,14 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      firstName: {
+      adminfirstName: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notEmpty: true,
         },
       },
-      lastName: {
+      adminlastName: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
