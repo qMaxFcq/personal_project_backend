@@ -6,6 +6,7 @@ const adminService = require("../services/admin-service");
 const createError = require("../utils/create-error");
 const bcryptService = require("../services/bcrypt-service");
 const genAccessToken = require("../services/token-service");
+const { Admin } = require("../models");
 
 exports.register = async (req, res, next) => {
   try {

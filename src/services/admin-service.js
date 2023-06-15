@@ -11,3 +11,7 @@ exports.checkPassword = (password) =>
   });
 
 exports.createUser = (userValue) => Admin.create(userValue);
+
+exports.getAdminName = (id) => {
+  return Admin.findOne({ where: { id: id } });
+};

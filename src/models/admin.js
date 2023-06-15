@@ -37,6 +37,14 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
+      isAdmin: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+        defaultValue: "user",
+      },
     },
     {
       underscored: true,
